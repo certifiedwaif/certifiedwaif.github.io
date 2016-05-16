@@ -1,0 +1,86 @@
+<html>
+<head>
+<h1>mbed</h1>
+</head>
+<body>
+<p>
+A few years ago, I ordered a <a href="https://www.sparkfun.com/products/12060">SparkFun Inventor's Kit</a> which had an Arduino Uno in it. And I fell in love with
+it, and did all the projects. It was an easy way for a programmer/mathematician like me to learn about
+microcontrollers, and it convinced a lot of us that maybe we could do electronics without needing to get an
+electrical engineering degree first.
+</p>
+
+<p>
+
+And that was great. I will always have a soft spot for Arduino. It had a large part to do with kicking off the
+whole Maker Movement. But over time, as I gained experience and learned more about the field, I started to
+become frustrated with Arduino for a few reasons.
+
+<ol>
+<li>8 bit, very limited</li>
+2 KB of SRAM and 32 KB of flash on the Uno. You really can't do much with that little SRAM. The 
+microcontroller's running at 16 MHz. And 8 bit microcontrollers are arguably just obsolete - they're not
+even more power efficient.
+<li>10 bit A/D, no D/A</li>
+My main interest in electronics was originally audio hacking, because I'm an amateur musician. You can't
+really do this with Arduino without buying additional hardware. You can do very limited analog output using 
+PWM, but that's all.
+<li>Expensive</li>
+The official <a href="http://core-electronics.com.au/genuino-uno-rev3.html">Uno Rev3</a> boards cost 
+AUD$53.66. Of course, you can get clones for much less on EBay, which is
+what everyone does. But still, that's a lot for such a limited board. You could buy a Raspberry Pi 3
+for about that. And if you buy a clone, you're taking it on faith that it's going to work right.
+<li>Arduino/Processing, not C++</li>
+Most Arduino programs are written in one file, through the Arduino environment. That's fine if that's your
+preferred way of working. But I'm a C++ programmer, and I'd prefer to work with a text editor and Makefiles. 
+And I'm never sure exactly what's in the Processing language and what's not.
+<li>Very limited debugging</li>
+Without buying additional hardware, you're limited to debugging over a serial console with prints.
+</ol>
+</p>
+
+<p>
+I still have affection for AVR. I bought 10 ATTiny85s from China, mostly because they were a buck each and I
+could. But I wanted something more powerful. What about the Raspberry Pi or the Beaglebone Black, you might
+say? Yes, those are much more powerful. They're single board Linux computers. And they're great for some
+things. But one of the things I love so much about Arduino is the simplicity of programming a board without
+having an operating system to worry about. For the sort of embedded programming that I'm interested in doing,
+Linux gets in the way and adds a lot of unnecessary complexity.
+</p>
+
+<p>
+I was looking around the SparkFun site one day, and I came across what was described as the "next step up"
+from the SparkFun Inventor's Kit - the <a href="https://www.sparkfun.com/products/12968">mbed Starter Kit</a>. 
+The mbed platform was developed by ARM, and is supported by many partners, not just Atmel. That kit is built 
+around the LPC1768, which is a big step up from a Uno (32 bit, 100 MHz ARM, 64 KB of SRAM, 512 KB of Flash,
+Ethernet, USB OTG, 12 bit A/D and D/A) with a price to match - AUD$75.36. But importantly, mbed supports a
+range of boards, from the very inexpensive and lower specced to the more expensive and very capable like the
+LPC1768. mbed addresses all the criticisms I made of Arduino above.
+
+<ol>
+<li>32 bit, very powerful boards available</li>
+Even the FRDM-KL25Z, one of the cheapest boards in the line, has 16 KB of SRAM and 128 KB of flash, and runs
+at 48 MHz. They're just more capable in every way than similiarly priced Arduino boards.
+<li>Power efficient</li>
+They're ARM - the same CPU that's in your mobile phone and most of your other devices. One of the main reasons
+for their dominance in that space is their performance per watt. You can power some of the boards from a coin 
+cell battery.
+<li>12 bit A/D and D/A</li>
+It's not a studio quality audio interface, but it's enough to get going.
+<li>From inexpensive and less capable to expensive and more capable</li>
+You can buy a FRDM-KL25Z for just over AUD$12. And it's the official mbed-supported board, not a clone.
+There's nothing both as tiny and as inexpensive as the ATTiny yet, although the BBC micro:bit might come
+close.
+<li>C++, using the mbed platform</li>
+Use the ARM cross compiler and any C++ IDE that you like. mbed is a proper C++ library for accessing the 
+embedded hardware in a platform independent way. Your programs will port to any board in the line that 
+supports that feature - just recompile.
+<li>Upload programs by copying them to the board/Debug with gdb</li>
+The board mounts as a file system over USB, and you just copy the binary over. You don't need to use an
+uploading program like avrdude. You don't need a hardware debugger either - debugging is via USB as well.
+</ol>
+
+</p>
+
+</body>
+</html>
