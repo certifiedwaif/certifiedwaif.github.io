@@ -69,10 +69,10 @@ cell battery.
 It's not a studio quality audio interface, but it's enough to get going.
 <li>From inexpensive and less capable to expensive and more capable</li>
 You can buy a FRDM-KL25Z for just over AUD$12. And it's the official mbed-supported board, not a clone.
-There's nothing both as tiny and as inexpensive as the ATTiny yet, although the BBC micro:bit might come
-close.
+There's nothing both as tiny and as inexpensive as the ATTiny yet, although I hope the BBC micro:bit might come
+close. They weigh 8 grams.
 <li>C++, using the mbed platform</li>
-Use the ARM cross compiler and any C++ IDE that you like. mbed is a proper C++ library for accessing the 
+Use the GNU toolchain and any C++ IDE that you like. mbed is a proper C++ library for accessing the 
 embedded hardware in a platform independent way. Your programs will port to any board in the line that 
 supports that feature - just recompile.
 <li>Upload programs by copying them to the board/Debug with gdb</li>
@@ -80,6 +80,11 @@ The board mounts as a file system over USB, and you just copy the binary over. Y
 uploading program like avrdude. You don't need a hardware debugger either - debugging is via USB as well.
 </ol>
 
+</p>
+
+<p>
+I'm mostly writing this blog post in the hope that other Arduino hackers I've met who became frustrated with
+their limitations are aware that there are soime great alternatives available :-) Have fun.
 </p>
 
 </body>
