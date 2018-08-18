@@ -1,19 +1,25 @@
 <html>
-
 <p>
-	I'm porting some R code to C++ 11. Dr Jacqueline Floyd asked me on Twitter to write about translating the 
-	syntax, and I thought I'd write about some of the pain points as well. I'm working with numeric code, so
-	my writing will have that emphasis.
+
+    I'm porting some R code to C++ 11, using Eigen for linear algebra, the GNU
+    Scientific Library for special functions and Boost for dynamic bitsets. I
+    use CMake for builds. Dr Jacqueline Floyd asked me on Twitter to write
+    about translating  the syntax, and I thought I'd write about some of the
+    pain points as well. I'm working with numeric code, so my writing will have
+    that emphasis.
+    
 </p>
 
 <p>
 	Pain points
-
-	R indexes from 1, C++ indexes from 0
-	R does not distinguish between single numbers and vectors
-	R's vector expressions don't always have a direct analogue in C++/Eigen
-	Expressions in R do not have types
-	C++11 will infer that the type of an expression involving an integer literal is an integer
+    <ul>
+        <li>R indexes from 1, C++ indexes from 0
+        <li>R does not distinguish between single numbers and vectors
+        <li>R's vector expressions don't always have a direct analogue in C++/Eigen
+        <li>Expressions in R do not have types
+        <li>C++11 will infer that the type of an expression involving an integer literal is an integer
+        <li>Always check that the corresponding functions in R and Eigen take parameters in the same order. For instance,
+        <li>seq() and LinSpaced() certainly don't.
+    </ul>
 </p>
-
 </html>
